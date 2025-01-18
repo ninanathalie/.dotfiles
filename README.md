@@ -66,9 +66,9 @@ Once the script runs:
   p10k configure
   ```
 
-### Customizing Your Setup
+## Customizing Your Setup
 
-#### Git Configuration
+### Git Configuration
 
 In this repository, you'll find a `.gitconfig.example` file which contains a sample Git configuration. It includes settings such as user name and email, as well as useful aliases.
 
@@ -87,7 +87,38 @@ Once you've customized it, you can rename the file to .gitconfig and place it in
 mv .gitconfig.example ~/.gitconfig
 ```
 
-#### Dotfiles Customization
+### Configuring Separate Git Identity for Work (If setting up on a Personal machine)
+
+Use `includeIf` directive to use a separate configuration file (`~/.gitconfig-work`) whenever you're working in the specified directory (`~/path/to/work-files/`).
+
+#### 1. Edit your `.gitconfig`:
+
+Open your `.gitconfig` file (located in your home directory `~/.gitconfig`):
+
+```bash
+code ~/.gitconfig
+```
+
+#### 2. Add the `includeIf` block:
+
+To configure a separate identity for work repositories, add the following snippet to your `.gitconfig`:
+
+```ini
+[includeIf "gitdir:~/path/to/work-files/"]
+path = ~/.gitconfig-work
+```
+
+#### 3. Create the Work-Specific Git Configuration::
+
+Next, create the `.gitconfig-work` file to specify your work-related settings
+
+```ini
+[user]
+  name = Work Name
+  email = workemail@example.com
+```
+
+### Dotfiles Customization
 
 Feel free to customize your `.zshrc`, `.gitconfig`, and other configuration files. You can directly edit these files in your home directory (`~`).
 

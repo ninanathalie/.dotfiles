@@ -1,3 +1,5 @@
 [user]
 	name = Your Name
     email = youremail@example.com
+[includeIf "gitdir:~/path/to/work-files/"]
+    path = ~/.gitconfig-work
